@@ -36,7 +36,8 @@ public class Menus
   {
     "Myolitz: Main Programmer",
     "Miyoshieira: Playtester",
-    "Sez, Jon, Mod: Puzzle Ideas"
+    "Sez, Jon, Mod: Puzzle Ideas",
+    "Press <Enter> to return to Menu"
   };
 
  public Menus() {}

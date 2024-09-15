@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 //Classes
 import org.Myolitz.Menus.MenuUtils;
+import org.Myolitz.Game.Game;
 
 public class Main 
 {
@@ -30,7 +31,12 @@ public class Main
       {
         case 1 -> 
         {
-          System.out.println("See you in 0.2.0 :)");
+          //System.out.println("See you in 0.2.0 :)");
+          Game game = new Game(in);
+          game.gameStart(in);
+          
+          // This is here to end the loop regardless as
+          // the actual game logic will be in a loop within Game.java
           userQuit = true;
         }
         case 2 -> menUtils.printCtrls();
@@ -43,6 +49,5 @@ public class Main
       }
     }
     in.close(); 
-  } 
-  String fuck = "git test"; 
+  }
 }
