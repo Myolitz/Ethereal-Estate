@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class Player
 {
+  //Class-specific vars
   protected String name;
   protected ArrayList<String> inventory;
   //protected Room location;
@@ -68,7 +69,6 @@ public class Player
         default -> System.out.println("How did you get here?");
       }
 
-
       //Keeping this text here to still remind players that they have in-fact
       //used the item
       System.out.println("Used " + usedItem);
@@ -101,6 +101,8 @@ public class Player
 
   public String getName() { return name; }
 
-
+  //NYI
+  //public Room getLocation() { return location; }
   
+  //public void setLocation(Room currRoom) { return currRoom.nextRoom(); }
 }

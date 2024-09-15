@@ -16,7 +16,8 @@ public class Menus
      *  2. Controls
      *  3. Load Save File
      *  4. Load Custom Map
-     *  5. Quit
+     *  5. Credits
+     *  6. Quit
      */ 
   };
 

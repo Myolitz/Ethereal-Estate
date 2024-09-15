@@ -11,18 +11,19 @@ public class Main
 {
   public static void main(String[] args) 
   {
+    //Objects
     Scanner in = new Scanner(System.in);
     MenuUtils menUtils = new MenuUtils();
+    
+    //Class-specific vars
+    boolean userQuit = false;
+    int userChoice;
 
-    System.out.println("Welcome to the Game:tm:...not that game, this game"); 
+    System.out.println("Ethereal Estate\n"); 
     
     //Loops player into an infinite menu loop until they either:
     //A) Start the Game
     //B) Quit the Game
-
-    boolean userQuit = false;
-    int userChoice;
-
     while (!userQuit)
     {
       menUtils.printMenu();

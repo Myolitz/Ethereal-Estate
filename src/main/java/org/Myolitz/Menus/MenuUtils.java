@@ -1,13 +1,18 @@
 package org.Myolitz.Menus;
 
+//Libraries
 import java.util.Scanner;
 
+//Packages
 
 public class MenuUtils extends Menus
 {
   Scanner in = new Scanner(System.in);
+
   public MenuUtils() {}
   
+
+  //Methods below, mainly prints
   public void printMenu()
   {
     for (String s : gameMenu)
