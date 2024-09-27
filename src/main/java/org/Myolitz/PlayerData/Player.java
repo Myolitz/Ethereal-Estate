@@ -4,23 +4,22 @@ package org.Myolitz.PlayerData;
 import java.util.ArrayList;
 
 //Packages
-//import org.Myolitz.Rooms
+import org.Myolitz.Game.RoomData.Room;
 
 public class Player
 {
   //Class-specific vars
   protected String name;
   protected ArrayList<String> inventory;
-  //protected Room location;
+  protected Room playerLocation;
   protected boolean wet;
-
+  
   public Player(String userName)
   {
     name = userName;
     inventory = new ArrayList<String>();
     inventory.add("Coat");
     wet = true;
-    //location = FrontEntrance
   }
 
   //Inventory-Related Methods 
@@ -101,8 +100,9 @@ public class Player
 
   public String getName() { return name; }
 
-  //NYI
-  //public Room getLocation() { return location; }
+  public void printLocation() { System.out.println(playerLocation.getName()); }
+
+  public Room getLocation() { return playerLocation; }
   
-  //public void setLocation(Room currRoom) { return currRoom.nextRoom(); }
+  public void setLocation(Room room) { playerLocation = room; }
 }

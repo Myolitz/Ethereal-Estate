@@ -1,8 +1,13 @@
+/*
+ *  @author: Myolitz
+ *  
+ *  Considered final as of 9/27/24
+ */
 package org.Myolitz;
 
 //Libs
 import java.util.Scanner;
-
+ 
 //Classes
 import org.Myolitz.Menus.MenuUtils;
 import org.Myolitz.Game.Game;

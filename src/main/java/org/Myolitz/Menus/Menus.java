@@ -23,7 +23,7 @@ public class Menus
 
   protected final String[] ctrlMenu = new String[]
   {
-    "F - Foward (NYI)",
+    "\nF - Foward (NYI)",
     "B - Backward (NYI)",
     "L - Left (NYI)",
     "R - Right (NYI)",
@@ -35,7 +35,7 @@ public class Menus
 
   protected final String[] credMenu = new String[]
   {
-    "Myolitz: Main Programmer",
+    "\nMyolitz: Main Programmer",
     "Miyoshieira: Playtester",
     "Sez, Jon, Mod: Puzzle Ideas",
     "Press <Enter> to return to Menu"
