@@ -1,7 +1,7 @@
 {
   "name": "Entrance",
   "desc": "TBD",
-  "ctrls": "L F R U",
+  "ctrls": "L-F-R-U",
   "map": 
   [
     ["-","-","-","-","-"],

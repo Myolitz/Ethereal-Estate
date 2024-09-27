@@ -7,12 +7,12 @@ import java.util.Scanner;
 
 public class MenuUtils extends Menus
 {
+  //Objects
   Scanner in = new Scanner(System.in);
 
   public MenuUtils() {}
   
-
-  //Methods below, mainly prints
+  //Printers
   public void printMenu()
   {
     for (String s : gameMenu)

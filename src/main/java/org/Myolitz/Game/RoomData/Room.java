@@ -3,13 +3,17 @@ package org.Myolitz.Game.RoomData;
 //Libraries
 import java.util.Scanner;
 
-public class Room implements RoomMethods
+//Packages
+
+public abstract class Room
 {
+  //Gen Room Info vars
   public String name;
   public String desc;
   public String ctrls;
   public String[][] map;
 
+  //Navigation-related vars
   public Room Next;
   public Room Prev;
   public Room Left;
@@ -27,7 +31,6 @@ public class Room implements RoomMethods
   }
 
   //Getters
-
   //  Variable-related
   public String getName() { return this.name; }
   public String getDesc() { return this.desc; }
@@ -45,11 +48,8 @@ public class Room implements RoomMethods
   public void printCtrls() { System.out.println(this.ctrls); }
   public void printEverything() { printName(); printDesc(); printCtrls(); }
 
-  //RoomMethods overrides...which get further overridden
-  @Override
+  //Abstract Methods
   public void formatDesc(){}
-
-  @Override
   public void playerAction(Scanner in){}
 
 }

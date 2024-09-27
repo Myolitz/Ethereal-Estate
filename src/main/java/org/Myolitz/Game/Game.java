@@ -30,17 +30,15 @@ public class Game
   }
 
   public void gameStart(Scanner in)
-  {
-    System.out.println("See you in 0.3.0 :)"); 
-    
+  {  
     roomList = builder.build();
     player.setLocation(roomList.get(0));
 
     while (isRunning)
     { 
       player.getLocation().playerAction(in);
-      //player.getLocation().playerAction(in);
 
+      System.out.println("See you in 0.4.0 :)");
       // Most of the logic will be ran through here
       // Still need to think of the logic but oh well
     

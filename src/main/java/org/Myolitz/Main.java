@@ -1,14 +1,9 @@
-/*
- *  @author: Myolitz
- *  
- *  Considered final as of 9/27/24
- */
 package org.Myolitz;
 
 //Libs
 import java.util.Scanner;
  
-//Classes
+//Packages
 import org.Myolitz.Menus.MenuUtils;
 import org.Myolitz.Game.Game;
 
@@ -37,7 +32,6 @@ public class Main
       {
         case 1 -> 
         {
-          //System.out.println("See you in 0.2.0 :)");
           Game game = new Game(in);
           game.gameStart(in);
           

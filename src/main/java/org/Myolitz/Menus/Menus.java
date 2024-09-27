@@ -38,6 +38,7 @@ public class Menus
     "\nMyolitz: Main Programmer",
     "Miyoshieira: Playtester",
     "Sez, Jon, Mod: Puzzle Ideas",
+    "Tamago: Code Assistance",
     "Press <Enter> to return to Menu"
   };
 

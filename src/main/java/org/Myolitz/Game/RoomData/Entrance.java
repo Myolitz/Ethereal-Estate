@@ -1,6 +1,9 @@
 package org.Myolitz.Game.RoomData;
 
+//Libraries
 import java.util.Scanner;
+
+//Packages
 
 public class Entrance extends Room
 {
@@ -13,20 +16,15 @@ public class Entrance extends Room
 
   public void printMap()
   {
-    //  Wonky loop given to me by IDEA
-    //  String[] s functions as the first [] within a String[][] loop
-    //  The nested loop then simply loops through the second []
-    //
-    //  For personal clarity's sake
-    //  First for declaration can be read the same as:
-    //  for (int i = 0; i < map.length; i++)
+    /* 
+     *  @see 0.3.0 commit for previous loop 
+     *  reverting back to simple one cause other one was causing an index OOB
+     */
+
     for (int i = 0; i < map.length; i++)
     {
       for (int j = 0; j < map.length; j++)
       {
-        //
-        //  s[j] essentially acts like (s[i])[j]
-        //
         System.out.print(map[i][j]);
       }
       System.out.println();
@@ -38,7 +36,8 @@ public class Entrance extends Room
   @Override
   public void formatDesc() 
   {
-    
+    //  NYI, this will serve to change descriptions based on events
+    //  Example: plantInteract
   }
 
   @Override

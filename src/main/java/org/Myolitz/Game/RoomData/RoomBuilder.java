@@ -1,8 +1,6 @@
 package org.Myolitz.Game.RoomData;
 
 //Libraries
-import java.io.IOException;
-import java.io.FileReader;
 import com.google.gson.Gson;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -49,17 +47,11 @@ public class RoomBuilder
   
   public ArrayList<Room> build()
   { 
-    ArrayList<Room> roomList = new ArrayList<Room>();
-    
-    // These are for debugging exclusively
-    //roomOne.printName();
-    //roomOne.printCtrls();
-    //roomOne.printDesc();
-    //roomOne.printMap();
+    ArrayList<Room> roomList = new ArrayList<Room>(); 
 
     roomList.add(gson.fromJson(entJson, Entrance.class));
     //  Strictly debugging
-    roomList.get(0).printEverything();
+    //roomList.get(0).printEverything();
 
     System.out.println("Build complete!");
 
