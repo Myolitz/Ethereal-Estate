@@ -4,6 +4,7 @@ package org.Myolitz.Game.RoomData;
 import java.util.Scanner;
 
 //Packages
+import org.Myolitz.PlayerData.Player;
 
 public abstract class Room
 {
@@ -41,15 +42,15 @@ public abstract class Room
   public Room getPrev() { return this.Prev; }
   public Room getLeft() { return this.Left; }
   public Room getRight() { return this.Right; }
-
+  
   //Printers
   public void printName() { System.out.println(this.name); }
   public void printDesc() { System.out.println(this.desc); }
-  public void printCtrls() { System.out.println(this.ctrls); }
+  public void printCtrls() { System.out.println("Ctrls: " + this.ctrls); }
   public void printEverything() { printName(); printDesc(); printCtrls(); }
 
   //Abstract Methods
-  public void formatDesc(){}
-  public void playerAction(Scanner in){}
-
-}
+  public abstract void formatDesc();
+  public abstract void playerAction(Scanner in, Player player, RoomDicts roomDict);
+  public abstract void playerInteract(Scanner in, Player player);
+} 

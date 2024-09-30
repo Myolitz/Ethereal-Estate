@@ -37,7 +37,7 @@ public class RoomBuilder
       {
         entJson += in.nextLine();
       }
-      System.out.println(entJson);
+      //System.out.println(entJson);
     }
     catch (FileNotFoundException a)
     {

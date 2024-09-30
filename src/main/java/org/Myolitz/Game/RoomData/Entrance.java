@@ -4,6 +4,7 @@ package org.Myolitz.Game.RoomData;
 import java.util.Scanner;
 
 //Packages
+import org.Myolitz.PlayerData.Player;
 
 public class Entrance extends Room
 {
@@ -15,12 +16,11 @@ public class Entrance extends Room
   }
 
   public void printMap()
-  {
-    /* 
-     *  @see 0.3.0 commit for previous loop 
-     *  reverting back to simple one cause other one was causing an index OOB
+  { 
+    /*  Might look janky "in-game"
+     *
+     *  @see Entrance.json in resources/jsons/ for a "clearer view"
      */
-
     for (int i = 0; i < map.length; i++)
     {
       for (int j = 0; j < map.length; j++)
@@ -41,18 +41,59 @@ public class Entrance extends Room
   }
 
   @Override
-  public void playerAction(Scanner in)
+  public void playerAction(Scanner in, Player player, RoomDicts dict)
   {
     boolean roomChange = false;
-    
+    String userCmd = "";
+    boolean validCmd = false;
+
     while (!roomChange)
-    { 
-      System.out.println("Entrance primed!");
+    {
+      validCmd = false;
+      this.printDesc();
+      if (!validCmd)
+      {
+        userCmd = in.next();
+        validCmd = dict.checkCmdValidity(userCmd);
+      }
+      switch (dict.playerCmd())
+      {
+        case "Left" -> 
+        {
+          System.out.println(dict.playerCmd());
+          roomChange = true;
+        }
+        case "Right" ->
+        {
+          System.out.println(dict.playerCmd());
+          roomChange = true;
+        }
+        case "Back" ->
+        {
+          System.out.println(dict.playerCmd());
+          roomChange = true;
+        }
+        case "Next" ->
+        {
+          System.out.println(dict.playerCmd());
+          roomChange = true;
+        }
+        case "Use" -> playerInteract(in, player);
+    
+        case "Inv" -> player.getInventory();
+        
 
+
+        default -> System.out.println("How did you get here?");
+      }
+    } 
       roomChange = true;
-    }
+  }
 
+  @Override
+  public void playerInteract(Scanner in, Player player)
+  {
+    //TODO: Implement
+  }
 
-
-  } 
 }

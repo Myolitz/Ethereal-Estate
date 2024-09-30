@@ -1,0 +1,26 @@
+{
+  "leftCmds": 
+  [
+    "L", "l", "Left", "left"
+  ],
+  "rightCmds":
+  [
+    "R", "r", "Right", "right"
+  ],
+  "backCmds":
+  [
+    "B", "b", "Back", "back" 
+  ],
+  "nextCmds":
+  [
+    "F", "f", "Forward", "forward"
+  ],
+  "useCmds":
+  [
+    "U", "u", "Use", "use"
+  ],
+  "invCmds":
+  [
+    "I", "i", "Inv", "inv", "Inventory", "inventory"
+  ]
+}
