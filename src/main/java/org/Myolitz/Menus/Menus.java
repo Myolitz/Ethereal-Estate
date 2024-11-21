@@ -23,13 +23,13 @@ public class Menus
 
   protected final String[] ctrlMenu = new String[]
   {
-    "\nF - Foward (NYI)",
-    "B - Backward (NYI)",
-    "L - Left (NYI)",
-    "R - Right (NYI)",
-    "U - Use (NYI)",
-    "I - Inventory (NYI)",
-    "M - Map (NYI)",
+    "\nF - Foward",
+    "B - Backward",
+    "L - Left",
+    "R - Right",
+    "U - Use",
+    "I - Inventory",
+    "M - Map",
     "Press <Enter> to return to Menu"
   };
 

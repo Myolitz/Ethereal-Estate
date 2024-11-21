@@ -1,6 +1,8 @@
 {
   "name": "Entrance",
-  "desc": "TBD",
+  "desc": "Where is this? It feels familiar yet alien...is it the tapestries or perhaps the",
+  "desc2": "boorish attempts at greenery through a singular potted plant? Talk about an",
+  "desc3": "out of place coat rack as well, just thrown into a corner without any care.",
   "ctrls": "L-F-R-U",
   "map": 
   [
@@ -9,5 +11,7 @@
     ["-","-","-","-","-"],
     ["-","-","-","-","-"],
     ["-","-","↑","-","-"]
-  ]
+  ],
+  "fullDesc": "",
+  "plantDesc": "This is a plant"
 }

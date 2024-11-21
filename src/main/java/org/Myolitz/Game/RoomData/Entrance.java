@@ -8,8 +8,12 @@ import org.Myolitz.PlayerData.Player;
 
 public class Entrance extends Room
 {
+  //Class-specific vars
+  public String plantDesc;
   public boolean plantInteract = false;
+  public int descUpdates = 0;
 
+  
   public Entrance () 
   {
     super();
@@ -38,11 +42,25 @@ public class Entrance extends Room
   {
     //  NYI, this will serve to change descriptions based on events
     //  Example: plantInteract
+    if (descUpdates == 0)
+    {
+      fullDesc = desc + "\n" + desc2 + "\n" + desc3; 
+      descUpdates += 1;
+    }
   }
 
+
+  /**
+   *  This is where majority of player action will occurr
+   *
+   *
+   *
+   */
   @Override
   public void playerAction(Scanner in, Player player, RoomDicts dict)
   {
+    formatDesc();
+
     boolean roomChange = false;
     String userCmd = "";
     boolean validCmd = false;
@@ -51,6 +69,8 @@ public class Entrance extends Room
     {
       validCmd = false;
       this.printDesc();
+      this.printMap();
+      this.printCtrls();
       if (!validCmd)
       {
         userCmd = in.next();
@@ -78,7 +98,7 @@ public class Entrance extends Room
           System.out.println(dict.playerCmd());
           roomChange = true;
         }
-        case "Use" -> playerInteract(in, player);
+        case "Use", "Interact" -> playerInteract(in, player, dict);
     
         case "Inv" -> player.getInventory();
         
@@ -91,9 +111,34 @@ public class Entrance extends Room
   }
 
   @Override
-  public void playerInteract(Scanner in, Player player)
+  public void playerInteract(Scanner in, Player player, RoomDicts dict)
   {
-    //TODO: Implement
-  }
+    boolean interactComplete = false;
+    boolean correctInteractCmd = false;
+    String userInput = "";
 
+    while (!interactComplete)
+    {
+      while (!correctInteractCmd)
+      {
+        System.out.println("What will you interact with?");
+        userInput = in.next();
+        correctInteractCmd = dict.entCmdValidity(userInput);
+      }
+        switch (userInput)
+        {
+          case "Plant", "plant" ->
+          {
+              System.out.println(plantDesc);
+              interactComplete = true;
+          }
+
+        }
+     
+
+
+    } 
+    
+  }
+  
 }

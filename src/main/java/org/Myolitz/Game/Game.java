@@ -2,9 +2,11 @@ package org.Myolitz.Game;
 
 //Libraries
 import java.util.Scanner;
+
+import javax.crypto.KEM;
+
 import java.util.ArrayList;
 import com.google.gson.Gson;
-
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
@@ -28,7 +30,12 @@ public class Game
 
   public Game(Scanner in) 
   {
-    this.isRunning = true;
+    /*  Purpose of Constructure is to:
+     *  1. Ensure game is looped through `isRunning`
+     *  2. Gather the dictionaries through the try_catch block | See `FileNotFoundException b` 
+     */
+
+    isRunning = true;
     builder = new RoomBuilder();
     gson = new Gson();
     
@@ -47,18 +54,20 @@ public class Game
   }
 
   public void gameStart(Scanner in)
-  {  
+  {
+    /*  Will create the rooms through the builder object | See `RoomBuilder.java`
+     *
+     *  TODO: Change logic to remove roomList and move the `player.setLocation()` call to be within `builder.build()`
+     */
     roomList = builder.build();
     player.setLocation(roomList.get(0));
 
     while (isRunning)
     { 
+      //Methods like this will function as the main gameplay loop as they'll handle
+      //all logic, see Room.java for javadoc
       player.getLocation().playerAction(in, player, roomDict);
-
-      System.out.println("See you in 0.4.0 :)");
-      // Most of the logic will be ran through here
-      // Still need to think of the logic but oh well
-    
+      
       //Putting this here for now
       isRunning = false;
 

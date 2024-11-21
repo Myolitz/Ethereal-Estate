@@ -49,11 +49,9 @@ public class RoomBuilder
   { 
     ArrayList<Room> roomList = new ArrayList<Room>(); 
 
-    roomList.add(gson.fromJson(entJson, Entrance.class));
-    //  Strictly debugging
-    //roomList.get(0).printEverything();
+    roomList.add(gson.fromJson(entJson, Entrance.class)); 
 
-    System.out.println("Build complete!");
+    //System.out.println("Build complete!");
 
     return roomList;
   }

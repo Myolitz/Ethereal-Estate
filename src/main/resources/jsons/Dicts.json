@@ -22,5 +22,9 @@
   "invCmds":
   [
     "I", "i", "Inv", "inv", "Inventory", "inventory"
+  ],
+  "entInteractCmds":
+  [
+    "Plant", "plant", "Coat Rack", "Rack", "rack", "coat rack"
   ]
 }

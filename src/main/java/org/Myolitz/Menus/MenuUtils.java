@@ -38,6 +38,8 @@ public class MenuUtils extends Menus
     }
     getEnterKey();
   }
+  
+  //Getters
 
   public void getEnterKey(){
     String temp = "";
