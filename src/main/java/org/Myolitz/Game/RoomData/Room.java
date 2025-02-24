@@ -72,7 +72,7 @@ public abstract class Room
    *  @see "resources/jsons/Dicts.json" for the list of commands
    *  @see "RoomDicts.java" for the methods that will use those lists to verify cmds
    */
-  public abstract void playerAction(Scanner in, Player player, RoomDicts roomDict);
+  public abstract void playerAction(Scanner in, Player player, RoomDicts roomDict, boolean assistMode);
   
-  public abstract void playerInteract(Scanner in, Player player, RoomDicts roomDict);
+  public abstract void playerInteract(Scanner in, Player player, RoomDicts roomDict, boolean assistMode);
 } 

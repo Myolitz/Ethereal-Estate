@@ -8,6 +8,8 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 //Packages
+import org.Myolitz.PlayerData.Player;
+
 
 public class RoomBuilder
 { 
@@ -45,13 +47,14 @@ public class RoomBuilder
     }
   }
   
-  public ArrayList<Room> build()
+  public ArrayList<Room> build(Player player)
   { 
-    ArrayList<Room> roomList = new ArrayList<Room>(); 
 
+    ArrayList<Room> roomList = new ArrayList<Room>(); 
+    
     roomList.add(gson.fromJson(entJson, Entrance.class)); 
 
-    //System.out.println("Build complete!");
+    player.setLocation(roomList.get(0));
 
     return roomList;
   }

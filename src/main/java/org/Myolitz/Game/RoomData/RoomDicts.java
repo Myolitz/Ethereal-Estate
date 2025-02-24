@@ -3,6 +3,7 @@ package org.Myolitz.Game.RoomData;
 //Libraries
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 
 //Packages
 
@@ -11,39 +12,29 @@ public class RoomDicts
   //Objs
   
   //Class-specific vars
-  protected String[] leftCmds;
-  protected String[] rightCmds;
-  protected String[] backCmds;
-  protected String[] nextCmds;
-  protected String[] useCmds;
-  protected String[] invCmds;
-  protected String[] entInteractCmds;
+  protected HashSet<String> leftCmds;
+  protected HashSet<String> rightCmds;
+  protected HashSet<String> backCmds;
+  protected HashSet<String> nextCmds;
+  protected HashSet<String> useCmds;
+  protected HashSet<String> invCmds;
+  protected HashSet<String> entPlant;
+  protected HashSet<String> entCoatRack;
   
   private String dictChoice = "";
-  private HashMap<String[], String> DictMap;
+  private String interactChoice = ""; 
 
-  //Prevents NullPointerException 
+  // Maps
+  private HashMap<HashSet<String>, String> actionDictMap;
+  private HashMap<HashSet<String>, String> entInteractMap;
+  
+  //Prevents NullPointerException as DictMap is not otherwise populateDictHashMap
+  //hence `populateDictHashMap` exists as a method 
   public int x = 0;
 
-  public RoomDicts () {}
-  
-  /*  TODO:
-   *  Try doing a HashMap<String[], String> with the dictionaries being the keys
-   *
-   *  Psuedocode:
-   *
-   *  for (String[] dicts : `Every HashMap String[] key`)
-   *  {
-   *    if Array `dicts` contains userInput
-   *    {
-   *      return `Value associated with Key`;
-   *    }
-   *  }
-   *  
-   *  Why am I only this big brained when its late at night? :(
-   */
+  public RoomDicts () {} 
 
-  public boolean checkCmdValidity(String userString)
+  public boolean checkActionCmdValidity(String userString)
   {
     if (x == 0)
     {
@@ -51,45 +42,54 @@ public class RoomDicts
       x += 1;
     }
     //I found the better way of doing this :) 
-    for (String[] s : DictMap.keySet())
+    for (HashSet<String> s : actionDictMap.keySet())
     {
-      if (Arrays.asList(s).contains(userString))
+      if (s.contains(userString))
       {
-          dictChoice = DictMap.get(s);
+          dictChoice = actionDictMap.get(s);
           return true;
-      }
+      } 
     }
 
     return false;
   }
-
-  public String playerCmd()
+  
+  //Returners of dict values
+  public String getDictChoice()
   { 
     return dictChoice;
   }
 
-  // Entrance validity checks
-  public boolean entCmdValidity(String userIn)
+  public String getInteractable()
   {
-    if (Arrays.asList(entInteractCmds).contains(userIn))
-    {
-      return true;
-    }
-    else {
-      System.out.println("Not an interactable item");
-      return false;
-    }
+    return interactChoice;
+  }
+  // Entrance validity checks
+  public boolean entCmdValidity(String userString)
+  {
+    for (HashSet<String> s : entInteractMap.keySet())
+      {
+        if (s.contains(userString))
+        {
+          interactChoice = entInteractMap.get(s);
+          return true;
+        }
+      }
+    return false;
   } 
 
   public void populateDictHashMap()
   {
-    DictMap = new HashMap<>();
-    DictMap.put(leftCmds, "Left");
-    DictMap.put(rightCmds, "Right");    
-    DictMap.put(backCmds, "Back");
-    DictMap.put(nextCmds, "Next");
-    DictMap.put(useCmds, "Use");
-    DictMap.put(invCmds, "Inv");
-    DictMap.put(entInteractCmds, "Interact");
+    actionDictMap = new HashMap<>();
+    actionDictMap.put(leftCmds, "Left");
+    actionDictMap.put(rightCmds, "Right");    
+    actionDictMap.put(backCmds, "Back");
+    actionDictMap.put(nextCmds, "Next");
+    actionDictMap.put(useCmds, "Use");
+    actionDictMap.put(invCmds, "Inv");
+    
+    entInteractMap = new HashMap<>();
+    entInteractMap.put(entPlant, "Plant");
+    entInteractMap.put(entCoatRack, "Coat");
   }
 }

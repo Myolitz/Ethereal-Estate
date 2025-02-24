@@ -57,7 +57,7 @@ public class Entrance extends Room
    *
    */
   @Override
-  public void playerAction(Scanner in, Player player, RoomDicts dict)
+  public void playerAction(Scanner in, Player player, RoomDicts dict, boolean assistMode)
   {
     formatDesc();
 
@@ -69,36 +69,40 @@ public class Entrance extends Room
     {
       validCmd = false;
       this.printDesc();
-      this.printMap();
-      this.printCtrls();
+      if (assistMode)
+      {
+        this.printMap();
+        this.printCtrls();
+      } 
       if (!validCmd)
       {
         userCmd = in.next();
-        validCmd = dict.checkCmdValidity(userCmd);
+        validCmd = dict.checkActionCmdValidity(userCmd);
       }
-      switch (dict.playerCmd())
+      switch (dict.getDictChoice())
       {
         case "Left" -> 
         {
-          System.out.println(dict.playerCmd());
+          //System.out.println(dict.playerCmd());
           roomChange = true;
+          player.setLocation(Left);
         }
         case "Right" ->
         {
-          System.out.println(dict.playerCmd());
+          //System.out.println(dict.playerCmd());
           roomChange = true;
         }
         case "Back" ->
         {
-          System.out.println(dict.playerCmd());
+          //System.out.println(dict.playerCmd());
           roomChange = true;
         }
         case "Next" ->
         {
-          System.out.println(dict.playerCmd());
+          //System.out.println(dict.playerCmd());
           roomChange = true;
         }
-        case "Use", "Interact" -> playerInteract(in, player, dict);
+        case "Use", "Interact" -> playerInteract(in, player, dict, assistMode);
     
         case "Inv" -> player.getInventory();
         
@@ -111,7 +115,7 @@ public class Entrance extends Room
   }
 
   @Override
-  public void playerInteract(Scanner in, Player player, RoomDicts dict)
+  public void playerInteract(Scanner in, Player player, RoomDicts dict, boolean assistMode)
   {
     boolean interactComplete = false;
     boolean correctInteractCmd = false;
@@ -125,14 +129,35 @@ public class Entrance extends Room
         userInput = in.next();
         correctInteractCmd = dict.entCmdValidity(userInput);
       }
-        switch (userInput)
+        switch (dict.getInteractable())
         {
-          case "Plant", "plant" ->
+          case "Plant" ->
           {
-              System.out.println(plantDesc);
-              interactComplete = true;
-          }
+            System.out.println(plantDesc);
+            userInput = in.next();
 
+            if (dict.checkActionCmdValidity(userInput))
+            {
+              switch (dict.getDictChoice())
+              {
+                case "Back" -> 
+                {
+                    System.out.println("You back away from the plant");
+                }
+                case "Use" ->
+                {
+                  System.out.println("What item will you use?"); 
+                  player.useItem(in.next());
+                }
+              }
+            }
+
+            interactComplete = true;
+          }
+          case "Coat" ->
+          {
+            System.out.println("CoatDesc goes here");
+          }
         }
      
 

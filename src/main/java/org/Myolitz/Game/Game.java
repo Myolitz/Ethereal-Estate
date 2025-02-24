@@ -25,6 +25,8 @@ public class Game
   //Class-specific vars
   public boolean isRunning;
   ArrayList<Room> roomList;
+  boolean assistMode = false;
+
 
   public Game(Scanner in) 
   {
@@ -49,6 +51,10 @@ public class Game
 
     System.out.println("Whats your name? (Importance NYI)");
     this.player = new Player(in.next());
+  
+    System.out.println
+    ("Will you enable Assist Mode? (Controls and Map will be shown at all times)");
+    assistMode = (in.next().equalsIgnoreCase("Y")) ? true : false;
   }
 
   public void gameStart(Scanner in)
@@ -57,14 +63,13 @@ public class Game
      *
      *  TODO: Change logic to remove roomList and move the `player.setLocation()` call to be within `builder.build()`
      */
-    roomList = builder.build();
-    player.setLocation(roomList.get(0));
+    roomList = builder.build(player); 
 
     while (isRunning)
     { 
       //Methods like this will function as the main gameplay loop as they'll handle
       //all logic, see Room.java for javadoc
-      player.getLocation().playerAction(in, player, roomDict);
+      player.getLocation().playerAction(in, player, roomDict, assistMode);
       
       //Putting this here for now
       isRunning = false;
